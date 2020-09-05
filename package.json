@@ -1,6 +1,6 @@
 {
   "name": "@paweljarema/sjwt",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A simple Json Web Token module written with minimal footprint in mind",
   "main": "index.js",
   "scripts": {

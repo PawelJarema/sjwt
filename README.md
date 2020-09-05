@@ -7,12 +7,12 @@ $ npm install -S '@paweljarema/sjwt'
 ```
 
 ### Setup
-To create secure, signed tokens you need to pass your apps secret to SJWT constructor. It's best to do it in a separate file and require as needed:
+To create secure tokens, you need to pass a secret to SJWT constructor. It's best to prepare an instance in a separate file and require later:
 
 ###### **`jwt.js`**
 ```sh
 const SJWT = require('@paweljarema/sjwt')
-const { appSecret } = require('../config/keys')
+const { appSecret } = require('../config/keys')   // appSecret is just a string
 
 module.exports = new SJWT({ secret: appSecret })
 ```
@@ -42,7 +42,7 @@ To test if token expired:
     const tokenIsValid = data && data.expires >= Date.now()
 ```
 ### Custom hash function
-To use your own hashing function, provide additional props to constructor, just like we did in setup. Hash function should take a **string** and return **hashed string**:
+To use custom hashing function, provide additional props in constructor, just like we did in setup. Hash function should take a **string** and return **hashed string**:
 ```sh
 const SJWT = require('@paweljarema/sjwt')
 const { appSecret } = require('../config/keys')
