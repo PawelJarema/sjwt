@@ -1,0 +1,22 @@
+{
+  "name": "@paweljarema/sjwt",
+  "version": "1.0.0",
+  "description": "A simple Json Web Token module written with minimal footprint in mind",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "authentication",
+    "jwt",
+    "json-web-token",
+    "small",
+    "simple",
+    "minimal-footprint"
+  ],
+  "author": "paweljarema",
+  "license": "ISC",
+  "dependencies": {
+    "simple-sha256": "^1.0.0"
+  }
+}
