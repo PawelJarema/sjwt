@@ -15,6 +15,11 @@
     "minimal-footprint"
   ],
   "author": "paweljarema",
+  "homepage": "https://github.com/PawelJarema/sjwt",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PawelJarema/sjwt.git"
+  },
   "license": "ISC",
   "dependencies": {
     "simple-sha256": "^1.0.0"
