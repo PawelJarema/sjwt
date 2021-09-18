@@ -1,7 +1,7 @@
 const hasher = require('./hashFunction')
 module.exports = class Token {
     constructor ({ type = 'JWT', secret = 'secret', hashFunction = hasher, hashFunctionName = 'sha256' }) {
-        this.secret = secret
+        this._secret = secret
         this._hashFunction = hashFunction
         this._head = {
             alg: hashFunctionName,

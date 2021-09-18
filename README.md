@@ -42,7 +42,7 @@ To test if token expired:
     const tokenIsValid = data && data.expires >= Date.now()
 ```
 ### Custom hash function
-To use custom hashing function, provide additional props in constructor, just like we did in setup. Hash function should take a **string** and return **hashed string**:
+To use customgit hashing function, provide additional props in constructor, just like we did in setup. Hash function should take a **string** and return a **hashed string**:
 ```sh
 const SJWT = require('@paweljarema/sjwt')
 const { appSecret } = require('../config/keys')
