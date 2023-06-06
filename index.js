@@ -1,6 +1,7 @@
-const hasher = require('./hashFunction')
+const hasher = require('crypto-js/hmac-sha512')
+const base64url = require('base64url')
 module.exports = class Token {
-    constructor ({ type = 'JWT', secret = 'secret', hashFunction = hasher, hashFunctionName = 'sha256' }) {
+    constructor ({ type = 'JWT', secret = 'secret', hashFunction = hasher, hashFunctionName = 'HS512' }) {
         this._secret = secret
         this._hashFunction = hashFunction
         this._head = {
@@ -9,19 +10,20 @@ module.exports = class Token {
         }
     }
 
-    _encBase64 (object) {
-        return Buffer.from(JSON.stringify(object)).toString('base64')
+    _encBase64Url (object) {
+        return base64url(JSON.stringify(object))
     }
 
-    _makeSignature (headerBase64, payloadBase64) {
+    _makeSignature (headerBase64Url, payloadBase64Url) {
         return this._hashFunction(
-            [headerBase64, payloadBase64, this._secret].join('.')
-        )
+            headerBase64Url + '.' + payloadBase64Url,
+            this._secret
+        ).toString()
     }
 
     tokenize (bodyObject) {
-        const headerBase64 = this._encBase64(this._head)
-        const payloadBase64 = this._encBase64(bodyObject)
+        const headerBase64 = this._encBase64Url(this._head)
+        const payloadBase64 = this._encBase64Url(bodyObject)
         const signature = this._makeSignature(headerBase64, payloadBase64)
 
         return [headerBase64, payloadBase64, signature].join('.')

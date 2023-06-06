@@ -1,6 +1,6 @@
 {
   "name": "@paweljarema/sjwt",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A simple Json Web Token module written with minimal footprint in mind",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "simple-sha256": "^1.0.0"
+    "base64url": "^3.0.1",
+    "crypto-js": "^4.1.1"
   }
 }
